@@ -5,8 +5,7 @@ from setuptools.command.install import install
 
 package = 'bsdetector'
 version = '0.1'
-links = []  # for repo urls (dependency_links)
-requires = []  # for package names
+
 
 class PostInstallCommand(install):
     """Post-installation for installation mode."""
@@ -23,8 +22,19 @@ setup(
     package_dir={'bsdetector': 'bsdetector'},
     package_data={'bsdetector': ['*.json', '*.txt']},
     packages=find_packages(),
-    install_requires=requires,
-    dependency_links=links,
+    install_requires=[
+        'pytest',
+        'requests',
+        'numpy',
+        'scipy',
+        'scikit-learn',
+        'textstat',
+        'future',
+        'decorator',
+        'decorators',
+        'pattern @ https://github.com/NicolasBizzozzero/pattern/tarball/master#egg=pattern',
+        'vaderSentiment',
+    ],
     include_package_data=True,
     description="Detects biased statements in online media documents",
     url='url',
